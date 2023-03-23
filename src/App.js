@@ -8,13 +8,15 @@ function App() {
   const [data, setData] = useState(Data.surcharge);
   const [unit, setUnit] = useState();
   const [value, setValue] = useState();
+  const [index, setIndex] = useState(4);
 
   const handleAddSurcharge = () => {
     if(!title || !unit || !value) {
       alert("Vui lòng nhập đầy đủ thông tin")
     } else {
-
+      setIndex(index + 1)
       setData([...data, {
+        id: index,
         title: title,
         type: unit,
         value: value
@@ -25,11 +27,12 @@ function App() {
       setValue("");
     };
   }
-  const handleDelete = (index) => {
+  const handleDelete = (dataDelete) => {
+
     let newData = [...data]
-    let id = data.findIndex(x => x.id === index)
-    newData.splice(id, 1)
-    // console.log(newData)
+    newData = newData.filter(x => x.id !== dataDelete.id)
+    // newData.splice(id, 1)
+    console.log(newData)
     setData(newData)
   }
 
@@ -68,7 +71,7 @@ function App() {
                 <div key={id} className="surcharges">
                   <h3>{data.title}</h3>
                   <h3>{data.value} {data.type}</h3>
-                  <h5 onClick={() => handleDelete(id)}>Xoá</h5>
+                  <h5 onClick={() => handleDelete(data)}>Xoá</h5>
                 </div>
               ))}
             </div>
