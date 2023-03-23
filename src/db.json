@@ -1,0 +1,21 @@
+{
+    "surcharge": [
+        {
+            "title": "Phí ODC",
+            "type": "VND",
+            "value": 10000
+        },
+        {
+            "title": "Phí AMS",
+            "type": "VND",
+            "value": 20000
+
+        },
+        {
+            "title": "Phí Handling",
+            "type": "%",
+            "value": 10
+
+        }
+    ]
+}
